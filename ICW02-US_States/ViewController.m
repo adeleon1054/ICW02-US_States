@@ -10,7 +10,7 @@
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSArray *states, *statesCapital, *statesFlags;
+@property (nonatomic, strong) NSArray *states, *statesCapital, *statesFlags, *statesShape;
 
 @end
 
@@ -35,6 +35,11 @@
     _statesFlags = @[@"al.png", @"ak.png", @"az.png", @"ar.png", @"ca.png", @"co.png", @"ct.png", @"de.png", @"fl.png",
                      @"ga.png", @"hi.png", @"id.png", @"il.png", @"in.png", @"ia.png", @"ks.png", @"ky.png", @"la.png",
                      @"me.png", @"md.png", @"ma.png", @"mi.png", @"mn.png", @"ms.png", @"mo.png"];
+    
+    _statesShape = @[@"ALABAMA", @"ALASKA", @"ARIZONA", @"ARKANSAS", @"CALIFORNIA", @"COLORADO", @"CONNECTICUT", @"DELAWARE",
+                     @"FLORIDA", @"GEORGIA", @"HAWAII", @"IDAHO", @"ILLINOIS", @"INDIANA", @"IOWA", @"KANSAS", @"KENTUCKY",
+                     @"LOUISIANA", @"MAINE", @"MARYLAND", @"MASSACHUSETTS", @"MICHIGAN", @"MINNESOTA", @"MISSISSIPPI",
+                     @"MISSOURI"];
 
 }
 
@@ -60,10 +65,11 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
     }
     
-    /* Display image on the left as default
-    UIImage *image = [UIImage imageNamed:[_statesFlags objectAtIndex:indexPath.row]];
-    cell.imageView.image = image; */
+    //Display image on the left as default
+    UIImage *image = [UIImage imageNamed:[_statesShape objectAtIndex:indexPath.row]];
+    cell.imageView.image = image;
     
+    //Display Title and Subtitle
     cell.textLabel.text = _states[indexPath.row];
     cell.detailTextLabel.text = _statesCapital[indexPath.row];
     
